@@ -1,0 +1,82 @@
+# Config centralisé pour Matcha-TTS
+experiment:
+  name: "matcha_tts_ljspeech"
+  seed: 42
+
+paths:
+  data_root: "data/LJSpeech-1.1"
+  train_metadata: "data/LJSpeech-1.1/metadata.csv"
+  val_metadata: "data/LJSpeech-1.1/metadata_val.csv"
+  checkpoints: "checkpoints"
+  logs: "logs"
+
+audio:
+  sample_rate: 22050
+  n_fft: 1024
+  win_length: 1024
+  hop_length: 256
+  n_mels: 80
+  fmin: 0
+  fmax: 8000
+
+model:
+  vocab_size: 0  # ignoré (vocab fixé par matcha_tts.text.symbols)
+  text_encoder:
+    embedding_dim: 256
+    num_layers: 6
+    num_heads: 4
+    dropout: 0.1
+  duration_predictor:
+    channels: 256
+    kernel_size: 3
+    dropout: 0.1
+  decoder:
+    channels: 80
+    attention_heads: 4
+    time_embedding_dim: 256
+    hidden_dim: 256
+    num_layers_per_block: 1
+    num_down_blocks: 2
+    num_mid_blocks: 2
+    num_up_blocks: 2
+    dropout: 0.1
+  flow:
+    sigma_min: 0.01
+    sigma_max: 1.0
+    num_steps: 1000
+
+training:
+  batch_size: 8
+  lr: 2e-4
+  weight_decay: 1e-6
+  max_steps: 100000
+  log_every: 1
+  ckpt_every: 1000
+  grad_clip: 1.0
+  amp: false
+  num_workers: 0  # en debug/Jupyter, rester en mono-process évite les soucis de multiprocessing
+  pin_memory: false
+  persistent_workers: false
+  overfit_one_batch: false
+  overfit_steps: 200
+  ema_decay: 0.0
+
+loss_weights:
+  prior: 1.0
+  duration: 1.0
+  cfm: 1.0
+
+inference:
+  noise_schedule: "linear"
+  guidance_scale: 1.0
+  num_samples: 1
+  n_steps: 10
+  temperature: 0.667
+
+validation:
+  enabled: true
+  every_steps: 500
+  texts:
+    - "Hello world."
+    - "This is a test sentence."
+    - "The quick brown fox jumps over the lazy dog."
