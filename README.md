@@ -80,7 +80,7 @@ python -m matcha_tts.infer --config matcha_tts/configs/config.yaml --text "Hello
 - Les modules sont séparés pour illustrer chaque étape de la chaîne TTS.
 - Le vocoder n'est pas inclus : on se concentre sur l'acoustique (mél-spectrogrammes).
 
-## Structure du répertoire d'évaluation 
+## Structure du répertoire Matcha - eval
 Ce dépôt contient l’ensemble des scripts et commandes utilisés pour évaluer
 **Matcha-TTS** en termes de **Real-Time Factor (RTF)** et de
 **Word Error Rate (WER)**, sur **CPU et GPU**.
@@ -119,7 +119,7 @@ matcha-eval/
 
 ---
 
-## Description des répertoires
+### Description des répertoires
 
 ### `scripts/`
 Ce répertoire contient l’ensemble des scripts Python nécessaires à la génération
@@ -160,7 +160,7 @@ Les fichiers intermédiaires (audios, logs, sorties temporaires) ne sont pas sto
 
 ---
 
-## Protocole d’évaluation
+### Protocole d’évaluation
 
 1. Génération des signaux audio à partir des textes d’évaluation avec Matcha-TTS
 2. Mesure du temps de synthèse et calcul du **Real-Time Factor (RTF)**
@@ -172,7 +172,7 @@ Les évaluations CPU et GPU sont réalisées séparément pour plus de clarté.
 
 ---
 
-## Reproductibilité
+### Reproductibilité
 
 L’ensemble des expériences peut être reproduit en suivant les instructions
 présentes dans le répertoire `commands/`.
@@ -186,7 +186,7 @@ sans intervention manuelle supplémentaire.
 
 ---
 
-## Remarques
+### Remarques
 
 - Ce dépôt contient uniquement les scripts d’évaluation.
 - Matcha-TTS est utilisé comme dépendance externe.
