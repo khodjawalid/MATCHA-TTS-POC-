@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Évaluation de la naturalité de la parole</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Évaluation de la naturalité de la parole</h2>
+
+<p>
+Veuillez écouter attentivement les extraits audio et évaluer le degré de <b>naturalité</b> de la voix synthétisée.
+<br>
+Il est recommandé d’utiliser un casque ou des écouteurs.
+</p>
+
+<div id="question"></div>
+<div id="audios"></div>
+
+<button onclick="next()">Suivant</button>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<select id="r${i}">
+  <option value="">Score</option>
+  <option value="1">1 — Complètement artificiel</option>
+  <option value="2">2 — Plutôt artificiel</option>
+  <option value="3">3 — Il reste un doute</option>
+  <option value="4">4 — Plutôt naturel</option>
+  <option value="5">5 — Totalement naturel</option>
+</select>
+

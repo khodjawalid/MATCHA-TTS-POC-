@@ -1,0 +1,11 @@
+name: matcha-tts
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pytorch
+  - numpy
+  - scipy
+  - pip
+  - pip:
+      - matcha-tts
