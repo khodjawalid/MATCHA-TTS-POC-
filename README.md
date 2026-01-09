@@ -30,7 +30,7 @@ Ce dépôt propose une ossature claire et modulaire pour étudier Matcha-TTS ("M
 3. Sampler Euler OT-CFM : bruit → mél en `inference.n_steps` pas, température réglable.
 4. Vocoder externe pour audio (non fourni).
 
-## Structure du dépôt
+## Structure du repertoire implementation
 Vue d'ensemble :
 
 ```
